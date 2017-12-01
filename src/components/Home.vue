@@ -1,7 +1,7 @@
 <template>
   <div>
-    <section class="section" v-for="item in items">
-      <span class="tool-bar">{{moment(item.created_at).format('YYYY-MM-DD')}}</span>
+    <section class="section" v-for="item in items" :key="item.id" >
+      <span class="tool-bar" :style="{'background-color':item.color}">{{moment(item.created_at).format('YYYY-MM-DD')}}</span>
       <div class="section-content">
           <hr class="split-bar">
           <h1 class="content-title">{{item.name}}</h1>
@@ -14,10 +14,16 @@
 
 <script>
 import axios from 'axios'
+import {getColorFromString} from '../utils/color'
+
 export default {
   created () {
     axios.get('https://api.github.com/users/anhuisunfei/repos?sort=created&order=desc')
       .then(res => {
+        res.data.forEach(el => {
+          el.color = getColorFromString(el.name)
+          console.log(el.color)
+        })
         this.items = res.data
       })
       .catch(err => {
@@ -102,8 +108,6 @@ export default {
     line-height: 2.25rem;
   }
 }
-
-
 
 .read-more {
   display: inline-block;
