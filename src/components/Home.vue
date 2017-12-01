@@ -7,7 +7,7 @@
           <h1 class="content-title">{{item.name}}</h1>
           <hr class="split-bar">
       </div>
-      <a class="read-more" target="_blank" v-bind:href="item.clone_url">READ MORE</a>
+      <a class="read-more" :style="{'background-color':item.color}" target="_blank" v-bind:href="item.clone_url">READ MORE</a>
     </section>
   </div>
 </template>
