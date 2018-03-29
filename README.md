@@ -1,4 +1,8 @@
 # vue-git-repos
+<p align="center">
+  <a href="http://anhuisunfei.github.io/vue-git-repos/"><img src="https://img.shields.io/travis/anhuisunfei/vue-git-repos.svg" alt="Build Status"></a>
+  
+</p>
 
 > A Vue.js project
 
